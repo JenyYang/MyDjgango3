@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<center><h2>用户列表</h2></center>
+
+<br><br>
+<table border="1" style="align-content: center">
+    <thead>
+    <tr>
+        <td>用户名</td>
+        <td>密码</td>
+        <td>年龄</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in userlist %}
+        {% if forloop.counter0|divisibleby:'2' %}
+        <tr style="background-color: aqua">
+            <td>{{ item.username }}</td>
+            <td>{{ item.password }}</td>
+            <td>{{ item.age }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>{{ item.username }}</td>
+            <td>{{ item.password }}</td>
+            <td>{{ item.age }}</td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
