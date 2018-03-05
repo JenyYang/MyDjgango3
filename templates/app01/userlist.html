@@ -5,34 +5,58 @@
     <title>用户列表</title>
 </head>
 <body>
-<center><h2>用户列表</h2></center>
+<center><h2>作者列表</h2></center>
 
 <br><br>
-<table border="1" style="align-content: center">
-    <thead>
-    <tr>
-        <td>用户名</td>
-        <td>密码</td>
-        <td>年龄</td>
-    </tr>
-    </thead>
-    <tbody>
-    {% for item in userlist %}
-        {% if forloop.counter0|divisibleby:'2' %}
-        <tr style="background-color: aqua">
-            <td>{{ item.username }}</td>
-            <td>{{ item.password }}</td>
-            <td>{{ item.age }}</td>
-        </tr>
-        {% else %}
+<div style="text-align: center">
+    <table border="1">
+        <thead>
         <tr>
-            <td>{{ item.username }}</td>
-            <td>{{ item.password }}</td>
-            <td>{{ item.age }}</td>
+            <td>姓名</td>
+            <td>邮箱</td>
         </tr>
-        {% endif %}
-    {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        {% for item in userlist %}
+            {% if forloop.counter0|divisibleby:'2' %}
+                <tr style="background-color: aqua">
+                    <td>{{ item.last_name }}{{ item.first_name }}</td>
+                    <td>{{ item.email }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ item.last_name }}{{ item.first_name }}</td>
+                    <td>{{ item.email }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<center><h2>图书列表</h2></center>
+
+<br><br>
+<div style="text-align: center">
+    <table border="1">
+        <thead>
+        <tr>
+            <td>书名</td>
+            <td>作者</td>
+            <td>出版社</td>
+            <td>出版日期</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in booklist %}
+            <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.author__last_name }}{{ item.author__first_name }}</td>
+                    <td>{{ item.publish__name }}</td>
+                    <td>{{ item.date }}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

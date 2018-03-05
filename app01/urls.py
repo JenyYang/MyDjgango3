@@ -20,5 +20,11 @@ from app01 import views
 
 urlpatterns = [
     url(r'^home/', views.home),
-    url(r'^adduser/', views.adduser),
+    # url(r'^adduser/', views.adduser),
+    url(r'^addclass/', views.AddClass),
+    url(r'^addcourse/', views.addCourse),
+    url(r'^addteacher/', views.addTeacher),
+    url(r'^addstudent/', views.addStudent),
+    url(r'^delclass/', views.delClass),
+    url(r'^add_teacher_clzz/', views.add_teacher_clzz),
 ]
